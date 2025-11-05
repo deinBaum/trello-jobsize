@@ -1,0 +1,14 @@
+{
+  "name": "Work Size Tracker",
+  "description": "Add numeral values (e.g. hours) to cards and get summarized values per user across the board.",
+  "author": "Marius Murtz",
+  "version": "0.1",
+  "capabilities": [
+    "board-buttons",
+    "card-buttons",
+    "card-back-section"
+  ],
+  "action": {
+    "url": "index.html"
+  }
+}
