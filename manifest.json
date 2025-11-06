@@ -3,7 +3,7 @@
   "description": "Add numeral values (e.g. hours) to cards and get summarized values per user of the board.",
   "author": "Marius Murtz",
   "version": "0.1",
-  "icon": "https://deinbaum.github.io/trello-worksize/public/appicon.png",
+  "icon": "https://deinbaum.github.io/trello-worksize/appicon.png",
   "capabilities": [
     "board-buttons",
     "card-buttons",
