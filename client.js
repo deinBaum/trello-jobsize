@@ -5,7 +5,7 @@ window.TrelloPowerUp.initialize({
       icon: 'https://deinbaum.github.io/trello-worksize/appicon.png',
       content: {
         type: 'iframe',
-        url: t.absoluteUrl('index.html'),
+        url: 'https://deinbaum.github.io/trello-worksize/index.html',
         height: 230
       }
     };
