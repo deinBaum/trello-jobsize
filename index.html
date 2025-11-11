@@ -29,44 +29,37 @@
   
 
   <script>
-    // Buttons mit Klick belegen: schreibt Wert ins Inputfeld
-    document.querySelectorAll('.recentBtn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('workSizeInput').value = btn.textContent;
-      });
+  // Buttons mit Klick belegen: schreibt Wert ins Inputfeld
+  document.querySelectorAll('.recentBtn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.getElementById('workSizeInput').value = btn.textContent;
     });
+  });
 
-    // Apply & Reset brauchen später Trello API Logik, hier vorerst nur Alerts
-    document.getElementById('applyBtn').addEventListener('click', () => {
-      alert('Apply: ' + document.getElementById('workSizeInput').value);
-    });
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      document.getElementById('workSizeInput').value = '0';
-    });
+  var t = window.TrelloPowerUp.iframe();
 
-    var t = window.TrelloPowerUp.iframe();
-    
-    // Wert aus dem Card-Objekt laden (wenn vorhanden)
-    t.get('card', 'shared', 'worksize').then(function(savedValue){
-      if(savedValue){
+  // Wert aus dem Card-Objekt laden (wenn vorhanden)
+  t.get('card', 'shared', 'worksize').then(function(savedValue){
+    if(savedValue){
       document.getElementById('workSizeInput').value = savedValue;
     }
   });
-    
+
   // Apply click → Wert speichern
   document.getElementById('applyBtn').addEventListener('click', function() {
     var newValue = document.getElementById('workSizeInput').value;
     t.set('card', 'shared', 'worksize', newValue)
       .then(function(){
-        t.closeModal(); // optional: Modal wieder schließen
+        // t.closeModal(); // Nur bei eigenen Popups nötig, ansonsten ignorieren oder auskommentieren
       });
   });
-    
+
   // Reset click → Feld leeren und speichern
   document.getElementById('resetBtn').addEventListener('click', function() {
     document.getElementById('workSizeInput').value = '';
     t.set('card', 'shared', 'worksize', '');
   });
-  </script>
+</script>
+
 </body>
 </html>
